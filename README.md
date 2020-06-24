@@ -3,6 +3,11 @@
 ## Overview
 Looking at many different tide forecasting websites, I found that there are hardly any that show multiple areas you want to observe at once. My Capstone will be bridging the gap mentioned. It will present a graphic representing the High and Low tides for up to 3 areas in the United States and US territories at once.
 
+ ### Possible APIs
+  - [Accuweather Tidal Data](https://apidev.accuweather.com/developers/TidalForecastApi)
+  - [World Tide Data (paid)](https://www.worldtides.info/apidocs)
+  - [NOAA Tide Data](https://tidesandcurrents.noaa.gov/api/)
+
 ## Functionality
 Users will be able to enter the zip-code/city/state for the areas they want to view and have the data post to the page.
 
