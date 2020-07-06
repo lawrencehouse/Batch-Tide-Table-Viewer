@@ -2,8 +2,12 @@
 {% load static %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'BTTVapp/style.css' %}">
-<div id="title-search">
-    <h1>The Batch Tide Table Viewer</h1>
-    <input type="text" />
+<div id="index-title">
+    <h1><b>The Batch Tide Table Viewer</b></h1>
+    <h2>Your favorite ocean tide data website!</h2> 
+</div>
+<div id="search">
+<input type="text" id="citysearch"/>
+<p>Enter the station you wish to view</p>
 </div>
 {% endblock %}
