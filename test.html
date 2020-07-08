@@ -13,12 +13,17 @@
   <script>
     axios({
       method: 'get',
-      url: 'https://www.ncdc.noaa.gov/cdo-web/api/v2/stations',
+      url: 'https://www.ncdc.noaa.gov/cdo-web/api/v2/locations?locationcategoryid=ST&limit=52',
       headers: {
         'token': station_api
       }
     }).then((response) => {
       console.log(response.data)
+      let locations = response.data
+      let states = locations.results
+      for (let i=0; i<states.length; ++i) {
+        console.log(states[i].name)
+      }
     })
   </script>
 </body>
