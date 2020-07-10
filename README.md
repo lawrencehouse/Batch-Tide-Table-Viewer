@@ -20,10 +20,10 @@ Users will be able to enter the zip-code/city/state for the areas they want to v
 ## Schedule
 -Weekend and Week 1
 
- - Research APIs, (three found so far, two free and one freemium)
+ - ~~Research APIs, (three found so far, two free and one freemium)~~ Using NOAA Tides
  - Speedwatch old bootcamp videos at 2.0 speed
  - Practice more by completing old labs.
- - Start building barebones of website (webpage layout, Django project, admin page)
+ - ~~Start building barebones of website (webpage layout, Django project, admin page)~~
 
 -Week 2
 
