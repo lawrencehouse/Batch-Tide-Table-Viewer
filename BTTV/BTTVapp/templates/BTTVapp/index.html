@@ -13,9 +13,8 @@
 <p>Select the region you wish to view, then select a state you wish to view</p>
 <ul style="list-style-type:none;">
     {% for region in regions %}
-    <li>{{region.region_name}}</li>
+    <li><b>{{region.region_name}}</b></li>
     {% endfor %}
 </ul>
 </div>
-
 {% endblock %}
