@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from BTTVapp.models import Station, Regions
+from BTTVapp.models import Station, Region
 import json
 import requests
     

@@ -6,7 +6,12 @@
     <h1><b>The Batch Tide Table Viewer</b></h1>
     <h2>Your favorite ocean tide data website!</h2> 
 </div>
-<div id="states">
+<div id="stations">
 <p>Select the state you wish to view</p>
+<h1>{{region.region_name}}</h1>
+<hr>
+    {% for stations in region_station %}
+    <p>{{stations.location_name}}</p>
+    {% endfor %}
 </div>
 {% endblock %}

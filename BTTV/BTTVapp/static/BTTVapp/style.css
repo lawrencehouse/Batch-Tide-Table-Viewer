@@ -4,3 +4,10 @@
 #search {
     text-align: center;
 }
+#states {
+    text-align: center;
+}
+hr {
+    height: 6px;
+    background-color: black;
+}
