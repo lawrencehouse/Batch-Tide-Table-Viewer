@@ -10,8 +10,10 @@
 <p>Select the state you wish to view</p>
 <h1>{{region.region_name}}</h1>
 <hr>
-    {% for stations in region_station %}
-    <p>{{stations.location_name}}</p>
+<ul style="list-style-type:none;">
+    {% for station in stations %}
+    <li><b><a href="{% url 'BTTVapp:station_detail' station.id %}">{{station}}</b></li>
     {% endfor %}
+</ul>
 </div>
 {% endblock %}

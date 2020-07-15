@@ -12,19 +12,20 @@ def index(request):
 
     return render(request,'BTTVapp\index.html', context)
 
-def region_detail(request, region_path_name):
-    region = Region.objects.get(path_name=region_path_name)
+def region_detail(request, id):
+    region = Region.objects.get(id=id)
     # template_name = f'BTTVapp/{region_name.lower().capitalize()}.html'
-    region_station = region.station_set.all
+    # region_station = region.station_set.all
+    stations = Station.objects.filter(region=region)
     context = {
-        'region': region,
-        'region_station': region_station
+        'stations': stations,
+        # 'region_station': region_station
     }
 
     return render(request, 'BTTVapp/region.html', context)
 
-def station_detail(request, station_path_name):
-    station = Station.objects.get(station_id=station_path_name)
+def station_detail(request, id):
+    station = Station.objects.get(id=id)
     context = {
         'station': station,
     }

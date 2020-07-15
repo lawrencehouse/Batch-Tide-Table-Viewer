@@ -8,10 +8,18 @@
 </div>
 <div id="stations">
 <p>Select the state you wish to view</p>
-<h1>{{region.region_name}}</h1>
 <hr>
-    {% for stations in region_station %}
-    <p>{{stations.location_name}}</p>
-    {% endfor %}
+    <p id="id">{{station.station_id}}</p>
 </div>
+
+<script>
+    axios({
+        method: 'get',
+        url: 'https://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20200528%2015:00&end_date=20200530%2015:06&station={{station.station_id}}&product=high_low&datum=MLLW&units=english&time_zone=lst&application=ports_screen&format=json',
+    }).then((response) => {
+        console.log(response.data)
+    })
+</script>
+
+
 {% endblock %}

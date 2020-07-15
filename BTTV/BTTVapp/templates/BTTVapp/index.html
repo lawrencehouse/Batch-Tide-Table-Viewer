@@ -14,7 +14,7 @@
 <ul style="list-style-type:none;">
     {% for region in regions %}
     <!-- <li><b><a href="/{{region.display_name}}/">{{region.region_name}}</b></li> -->
-    <li><b><a href="{% url 'BTTVapp:region_detail' region.path_name %}">{{region.region_name}}</b></li>
+    <li><b><a href="{% url 'BTTVapp:region_detail' region.id %}">{{region.region_name}}</b></li>
     {% endfor %}
 </ul>
 </div>
