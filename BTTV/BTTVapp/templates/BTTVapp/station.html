@@ -4,22 +4,48 @@
 <link rel="stylesheet" type="text/css" href="{% static 'BTTVapp/style.css' %}">
 <div id="index-title">
     <h1><b>The Batch Tide Table Viewer</b></h1>
-    <h2>Your favorite ocean tide data website!</h2> 
+    <h2>Your favorite ocean tide data website!</h2>
 </div>
-<div id="stations">
-<p>Select the state you wish to view</p>
-<hr>
-    <p id="id">{{station.station_id}}</p>
+<div id="stations" style="text-align: center;">
+    <h2><b>Tide data for {{station.location_name}}</b></h2>
+    <hr>
 </div>
-
+<div>
+    <table id="tide_table" class="display table" width="100%">
+        <thead>
+            <tr>
+                <th>Date and Time</th>
+                <th>Height (FT)</th>
+                <th>High (H) Low (L)</th>
+            </tr>
+        <tbody>
+            <tr v-for="tide_data in table_data">
+                <td v-for="tide in tide_data">
+                    [[tide]]
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <script>
-    axios({
-        method: 'get',
-        url: 'https://tidesandcurrents.noaa.gov/api/datagetter?begin_date=20200528%2015:00&end_date=20200530%2015:06&station={{station.station_id}}&product=high_low&datum=MLLW&units=english&time_zone=lst&application=ports_screen&format=json',
-    }).then((response) => {
-        console.log(response.data)
+    let app = new Vue({
+        el: '#tide_table',
+        data: {
+            table_data: null,
+        },
+        delimiters: ['[[', ']]'],
+        created: function () {
+            axios({
+                method: 'get',
+                url: 'https://www.tidesandcurrents.noaa.gov/api/datagetter?begin_date=20200715&end_date=20200718&station={{station.station_id}}&product=predictions&datum=MLLW&time_zone=lst_ldt&interval=hilo&units=english&format=json',
+            }).then((response) => {
+                // console.log(data)
+                this.table_data = response.data.predictions
+                console.log(this.table_data)
+                // let tides = data.predictions
+                // this.table_data = tides
+            })
+        }
     })
 </script>
-
-
 {% endblock %}
