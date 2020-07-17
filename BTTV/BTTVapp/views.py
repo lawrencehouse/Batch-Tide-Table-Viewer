@@ -14,12 +14,9 @@ def index(request):
 
 def region_detail(request, id):
     region = Region.objects.get(id=id)
-    # template_name = f'BTTVapp/{region_name.lower().capitalize()}.html'
-    # region_station = region.station_set.all
     stations = Station.objects.filter(region=region)
     context = {
         'stations': stations,
-        # 'region_station': region_station
     }
 
     return render(request, 'BTTVapp/region.html', context)

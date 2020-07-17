@@ -6,12 +6,17 @@
     <h1><b>The Batch Tide Table Viewer</b></h1>
     <h2>Your favorite ocean tide data website!</h2>
 </div>
-<div id="stations" style="text-align: center;">
-    <h2><b>Tide data for {{station.location_name}}</b></h2>
-    <hr>
-</div>
-<div>
-    <table id="tide_table" class="display table" width="100%">
+
+<div id="tide_table">
+    <p>Enter the dates you want in the following format.</p>
+    Start Date<input type="text" name="begin_date" placeholder="YYYYMMDD" maxlength="8" id="SD" v-model="starting" />
+    End Date<input type="text" name="end_date" placeholder="YYYYMMDD" maxlength="8" id="ED" v-model="ending" />
+    <button v-on:click="get_tides">click</button>
+    <div id="stations" style="text-align: center;">
+        <h2><b>Tide data for {{station.location_name}}</b></h2>
+        <hr>
+    </div>
+    <table class="display table" width="100%" v-show="table_data">
         <thead>
             <tr>
                 <th>Date and Time</th>
@@ -28,23 +33,28 @@
     </table>
 </div>
 <script>
+    let mybutton = document.querySelector('#date_sub')
     let app = new Vue({
         el: '#tide_table',
         data: {
+            starting: '',
+            ending: '',
             table_data: null,
         },
         delimiters: ['[[', ']]'],
-        created: function () {
-            axios({
-                method: 'get',
-                url: 'https://www.tidesandcurrents.noaa.gov/api/datagetter?begin_date=20200715&end_date=20200718&station={{station.station_id}}&product=predictions&datum=MLLW&time_zone=lst_ldt&interval=hilo&units=english&format=json',
-            }).then((response) => {
-                // console.log(data)
-                this.table_data = response.data.predictions
-                console.log(this.table_data)
-                // let tides = data.predictions
-                // this.table_data = tides
-            })
+        methods: {
+            get_tides: function () {
+                axios({
+                    method: 'get',
+                    url: 'https://www.tidesandcurrents.noaa.gov/api/datagetter?begin_date=' + this.starting + '&end_date=' + this.ending + '&station={{station.station_id}}&product=predictions&datum=MLLW&time_zone=lst_ldt&interval=hilo&units=english&format=json',
+                }).then((response) => {
+                    // console.log(data)
+                    this.table_data = response.data.predictions
+                    console.log(this.table_data)
+                    // let tides = data.predictions
+                    // this.table_data = tides
+                })
+            }
         }
     })
 </script>
