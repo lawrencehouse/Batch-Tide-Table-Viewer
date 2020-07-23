@@ -46,7 +46,7 @@
             get_tides: function () {
                 axios({
                     method: 'get',
-                    url: 'https://www.tidesandcurrents.noaa.gov/api/datagetter?begin_date=' + this.starting + '&end_date=' + this.ending + '&station={{station.station_id}}&product=predictions&datum=MLLW&time_zone=lst_ldt&interval=hilo&units=english&format=json',
+                    url: `https://www.tidesandcurrents.noaa.gov/api/datagetter?begin_date=${this.starting}&end_date=${this.ending}&station={{station.station_id}}&product=predictions&datum=MLLW&time_zone=lst_ldt&interval=hilo&units=english&format=json`,
                 }).then((response) => {
                     // console.log(data)
                     this.table_data = response.data.predictions
