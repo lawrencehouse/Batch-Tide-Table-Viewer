@@ -18,11 +18,9 @@ Users will be able to enter the zip-code/city/state for the areas they want to v
  - Model containing the date range requested by the user
 
 ## Schedule
--Weekend and Week 1
+-Week 1
 
- - ~~Research APIs, (three found so far, two free and one freemium)~~ Using NOAA Tides
- - Speedwatch old bootcamp videos at 2.0 speed
- - Practice more by completing old labs.
+ - ~~Research APIs, (three found so far, two free and one freemium)~~ 
  - ~~Start building barebones of website (webpage layout, Django project, admin page)~~
 
 -Week 2
@@ -32,4 +30,4 @@ Users will be able to enter the zip-code/city/state for the areas they want to v
 
 -Week 3
 
- - Make the website look "good" with CSS stuff.
+ - Add extra CSS.
